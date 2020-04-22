@@ -6,7 +6,7 @@ RUN apt-get update && apt-get -y --no-install-recommends install \
       libgmp-dev libpcre3-dev libssl-dev libunistring-dev \
  && rm -rf /var/lib/apt/lists/*
 WORKDIR /build
-RUN git clone git@github.com:manuel-serrano/bigloo.git --depth 1 --tags
+RUN git clone https://github.com/manuel-serrano/bigloo.git --depth 1 --tags
 WORKDIR /build/bigloo
 RUN ./configure
 RUN make
