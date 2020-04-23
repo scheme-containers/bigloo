@@ -9,7 +9,10 @@ WORKDIR /build
 RUN git clone https://github.com/manuel-serrano/bigloo.git --depth 1 --tags
 WORKDIR /build/bigloo
 RUN ./configure
-RUN make
+RUN LD_LIBRARY_PATH=/usr/local/lib/bigloo/4.3g \
+      make bigboot BGLBUILDBINDIR=/usr/local/bin
+RUN make install-progs
+RUN make fullbootstrap-sans-log
 RUN make install
 
 FROM debian:buster-slim
