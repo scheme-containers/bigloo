@@ -14,6 +14,7 @@ WORKDIR bigloo
 RUN ./configure
 RUN make
 RUN make install-sans-docs
+RUN make fulltest
 
 FROM debian:buster-slim
 COPY --from=build /usr/local/ /usr/local/
