@@ -13,7 +13,8 @@ RUN LD_LIBRARY_PATH=/usr/local/lib/bigloo/4.3g \
       make bigboot BGLBUILDBINDIR=/usr/local/bin
 RUN make install-progs
 RUN make fullbootstrap-sans-log
-RUN make install
+RUN make install-sans-docs
+RUN make fulltest
 
 FROM debian:buster-slim
 COPY --from=build /usr/local/ /usr/local/
