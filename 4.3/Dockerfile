@@ -1,7 +1,8 @@
 # -*- mode: dockerfile; coding: utf-8 -*-
 FROM debian:buster-slim AS build
 RUN apt-get update && apt-get -y --no-install-recommends install \
-      build-essential autoconf automake libtool m4 curl \
+      curl \
+      build-essential autoconf automake libtool m4 \
       libgmp-dev libpcre3-dev libssl-dev libunistring-dev \
  && rm -rf /var/lib/apt/lists/*
 WORKDIR /build
