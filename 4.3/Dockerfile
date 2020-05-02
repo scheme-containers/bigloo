@@ -13,7 +13,7 @@ RUN mkdir bigloo && tar -C bigloo --strip-components 1 -xf bigloo.tar.gz
 WORKDIR bigloo
 RUN ./configure
 RUN make
-RUN make install
+RUN make install-sans-docs
 
 FROM debian:buster-slim
 COPY --from=build /usr/local/ /usr/local/
