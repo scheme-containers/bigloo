@@ -2,10 +2,11 @@
 # Installing the JDK or the JRE does not seem to work in buster-slim.
 FROM debian:buster AS build
 RUN apt-get update && apt-get -y --no-install-recommends install \
-      autoconf automake curl libtool make patch zip \
+      autoconf automake libtool make patch zip \
       default-jdk-headless sqlite3 \
       gcc libc-dev libgmp-dev libunistring-dev \
       libpcre3-dev libsqlite3-dev libssl-dev \
+      curl \
  && rm -rf /var/lib/apt/lists/*
 WORKDIR /build
 COPY checksum checksum
