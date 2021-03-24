@@ -9,7 +9,7 @@ WORKDIR /build
 RUN git clone https://github.com/manuel-serrano/bigloo.git --depth 1 --tags
 WORKDIR /build/bigloo
 RUN ./configure
-RUN LD_LIBRARY_PATH=/usr/local/lib/bigloo/4.4a \
+RUN LD_LIBRARY_PATH=/usr/local/lib/bigloo/4.4b \
       make bigboot BGLBUILDBINDIR=/usr/local/bin
 RUN make install-progs
 RUN make fullbootstrap-sans-log
