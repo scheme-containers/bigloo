@@ -19,7 +19,7 @@ RUN make fullbootstrap-sans-log
 RUN make install-sans-docs
 RUN make fulltest
 
-FROM debian:buster
+FROM debian:bullseye
 RUN apt-get update && apt-get -y --no-install-recommends install \
       default-jre-headless sqlite3 \
       gcc libc-dev libgmp-dev libunistring-dev \

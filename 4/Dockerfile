@@ -1,6 +1,6 @@
 # -*- mode: dockerfile; coding: utf-8 -*-
-# Installing the JDK or the JRE does not seem to work in buster-slim.
-FROM debian:buster AS build
+# Installing the JDK or the JRE does not seem to work in Debian -slim.
+FROM debian:bullseye AS build
 RUN apt-get update && apt-get -y --no-install-recommends install \
       autoconf automake libtool make patch zip \
       default-jdk-headless sqlite3 \
@@ -21,7 +21,7 @@ RUN make compile-bee
 RUN make install-sans-docs
 RUN make fulltest
 
-FROM debian:buster
+FROM debian:bullseye
 RUN apt-get update && apt-get -y --no-install-recommends install \
       default-jre-headless sqlite3 \
       gcc libc-dev libgmp-dev libunistring-dev \
